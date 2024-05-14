@@ -1,0 +1,23 @@
+.txt {
+    color: var(--branding);
+}
+
+.branding {
+    --ctx_main: var(--branding);
+    --ctx_text: var(--on_branding);
+}
+
+.tetriary {
+    --ctx_main: var(--tetriary);
+    --ctx_text: var(--on_tetriary);
+}
+
+.info {
+    --ctx_main: var(--info);
+    --ctx_text: var(--on_info);
+}
+
+.error {
+    --ctx_main: var(--error);
+    --ctx_text: var(--on_error);
+}

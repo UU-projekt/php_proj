@@ -1,0 +1,138 @@
+/* Ladda in de fonts vi behöver */
+@import url(./fonts.css);
+@import url(./alignment.css);
+@import url(./colours.css);
+@import url(./input.css);
+@import url(./buttons.css);
+@import url(./toast/index.css);
+
+/* Sidans tema */
+:root {
+    --bg:    #050505;
+    --on_bg: white;
+
+    --branding: #2EB454;
+    --on_branding: white;
+
+    --tetriary: rgba(128, 128, 128, 0.151);
+    --on_tetriary: white;
+
+    --link_new: cyan;
+    --link_visited: teal;
+
+    --info: blue;
+    --on_info: white;
+
+    --error: #960018;
+    --on_error: white;
+}
+
+/* Ta bort jobbiga css presets */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+a {
+    color: var(--link_new);
+}
+
+a:visited {
+    color: var(--link_visited);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--on_bg);
+    min-height: 100vh;
+}
+
+.logo_row {
+    width: 20%;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.logo_row > img {
+    width: 3em;
+}
+
+.navbar_container {
+    padding: 0.75em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    border-radius: 1.5em;
+    background-color: rgba(82, 82, 82, 0.212);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    overflow: hidden;
+}
+
+.navbar > .logo_row {
+    padding: 0.75em;
+}
+
+
+.navbar_content {
+    height: 100%;
+}
+
+.nav_item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.75em;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-small {
+    gap: .25em;
+}
+
+.gap-medium {
+    gap: .5em;
+}
+
+.gap-large {
+    gap: .75em;
+}
+
+.info_bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: .75em;
+    gap: 1em;
+    outline: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.15);
+    padding: 1em;
+}
+
+.info_bar > .code {
+    color: lightgray;
+    font-weight: bold;
+}
+
+.info_bar.code_2xx {
+    outline: 1px solid var(--branding);
+    background-color: rgba(21, 207, 21, 0.15);
+}

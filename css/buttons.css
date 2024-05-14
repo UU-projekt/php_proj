@@ -1,0 +1,13 @@
+.btn {
+    background-color: transparent;
+    padding: 0.5em;
+    border: none;
+    color: var(--ctx_text) !important; /* bad practise, idc c: */
+    background-color: var(--ctx_main);
+    border-radius: .5em;
+    font-size: medium;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}

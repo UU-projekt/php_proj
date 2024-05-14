@@ -1,0 +1,37 @@
+.input_group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+/*    background-color: rgba(59, 59, 59, 0.397); */
+    padding: .5em;
+    padding-left: 0;
+    padding-right: 0;
+    gap: .3em;
+    border-radius: .75em;
+}
+
+.input_group:hover > input {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.input_group > input {
+    transition: .2s;
+    background-color: transparent;
+    color: white;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.17);
+    padding: .5em;
+    border-bottom: 3px solid transparent;
+    border-radius: .5em;
+    outline: 1px solid black;
+}
+
+.input_group > label {
+    font-size: small;
+    font-weight: bold;
+    color: var(--branding);
+}
+
+.input_group > input:invalid {
+    outline: 1px dashed red;
+}
