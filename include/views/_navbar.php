@@ -4,7 +4,7 @@
 
         <div class="navbar_content">
             
-        <?php if($_SESSION["user"]): ?>
+        <?php if(isset($_SESSION["user"])): ?>
             <a href="/user.php">
                 <div class="nav_item">
                     Ditt konto

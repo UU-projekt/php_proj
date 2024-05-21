@@ -65,9 +65,7 @@ body {
 
 .navbar_container {
     padding: 0.75em;
-    position: absolute;
-    top: 0;
-    left: 0;
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -79,7 +77,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 60%;
     overflow: hidden;
 }
 
@@ -104,6 +102,10 @@ body {
     flex-direction: column;
 }
 
+.center {
+    align-items: center;
+}
+
 .gap-small {
     gap: .25em;
 }
@@ -114,6 +116,10 @@ body {
 
 .gap-large {
     gap: .75em;
+}
+
+.gap-huge {
+    gap: 2em;
 }
 
 .info_bar {
@@ -135,4 +141,67 @@ body {
 .info_bar.code_2xx {
     outline: 1px solid var(--branding);
     background-color: rgba(21, 207, 21, 0.15);
+}
+
+.layout {
+    width: 60%;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    gap: 2em;
+}
+
+.layout > .content {
+    width: 100%;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.sidebar > .section {
+    padding: .5em;
+}
+
+.sidebar > hr {
+    border: 1px solid gray;
+}
+
+.section > .label {
+    opacity: .5;
+    font-size: .8em;
+}
+
+.section a {
+    color: inherit;
+}
+
+.section > ul {
+    list-style: none;
+}
+
+.section > ul > li {
+    opacity: .75;
+    display: flex;
+    gap: .5em;
+    align-items: center;
+    text-wrap: ellipsis;
+}
+
+.section > ul path {
+    fill: white;
+}
+
+.margin {
+
+}
+
+.tag {
+    background-color: var(--ctx_main);
+    padding: .2em;
+    border-radius: .2em;
+    font-weight: bold;
+    font-size: .8em;
 }

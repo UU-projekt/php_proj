@@ -1,5 +1,21 @@
 <?php
 
+function validateArray($arr) {
+    foreach($arr as $item) {
+        $min    = $item["min"];
+        $max    = $item["max"];
+        $value  = $item["value"];
+
+        if(gettype($value) === "string") {
+            $value = strlen($value);
+        }
+
+        if($min > $value || $max < $value) return false;
+    }
+
+    return true;
+}
+
 function generateApiError($code, $title, $description) {
     header('Content-Type: application/json; charset=utf-8');
     http_response_code($code);

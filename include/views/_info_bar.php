@@ -1,7 +1,3 @@
-<?php 
-include "../bootstrap.php";
-?>
-
 <?php if(isset($_SESSION["error"])): ?>
     
     <div class="info_bar code_<?= substr($_SESSION["error"]["code"], 0, 1) ?>xx">

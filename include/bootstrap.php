@@ -7,12 +7,13 @@ error_reporting(E_ALL);
 
 $path = $_SERVER['DOCUMENT_ROOT'];
 
-function getProperPath($name) {
+function getProperPath($name, $dir = "/include/functions/") {
     $path = $_SERVER['DOCUMENT_ROOT'];
-    return $path . "/include/functions/" . $name;
+    return $path . $dir . $name;
 }
 
 include getProperPath("apiHelpers.php");
 include getProperPath("db.php");
 include getProperPath("errorState.php");
 include getProperPath("mail.php");
+include getProperPath("markdown.php");

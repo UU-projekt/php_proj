@@ -23,7 +23,7 @@
     padding: .5em;
     border-bottom: 3px solid transparent;
     border-radius: .5em;
-    outline: 1px solid black;
+    outline: 1px solid gray;
 }
 
 .input_group > label {
@@ -34,4 +34,27 @@
 
 .input_group > input:invalid {
     outline: 1px dashed red;
+}
+
+.input_group > textarea {
+    outline: 1px solid gray;
+    background-color: transparent;
+    border: none;
+    border-radius: .5em;
+    padding: .5em;
+    resize: vertical;
+}
+
+.input_group > input[type=file] {
+    outline: none;
+}
+
+.input_group > .preview {
+    width: 25%;
+}
+
+form > .btn-row {
+    display: flex;
+    justify-content: right;
+    width: 100%;
 }

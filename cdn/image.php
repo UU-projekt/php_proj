@@ -17,19 +17,11 @@ try {
 
 header("Content-Type: image/png");
 
-function resolveFilePath($filename, $dir = "avatars") {
-    $path = "../img";
-    if(isset($dir)) $path = $path . "/" . $dir . "/";
-    $path = $path . $filename;
-
-    return $path;
-}
-
 if(!empty($image)) {
-    
+    echo readfile(getProperPath($image["filepath"], "/img/"));
 }
 elseif(isset($default) && $default === "true") {
-    echo readfile(resolveFilePath("default.png"));
+    echo readfile(getProperPath("default.png", "/img/avatars/"));
 } else {
     echo generateApiError(404, "Not Found", "image with id '" . $_GET["key"] . "' was not found.");
 }
