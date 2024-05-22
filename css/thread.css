@@ -4,9 +4,17 @@
     position: relative;
 }
 
-.thread-details img {
+.thread-details .image-container {
+    display: flex;
+    align-items: center;
     width: 50%;
+}
+
+.thread-details img {
+    max-width: 100%;
+    max-height: 30vh;
     border-radius: .4em;
+    background-color: var(--tetriary);
 }
 
 .thread-details section {
@@ -30,5 +38,96 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+}
 
+.starrow {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    gap: .5em;
+    padding-bottom: .5em;
+}
+
+#editbtn, #deletebtn {
+    width: 2em;
+    height: 2em;
+    fill: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#deletebtn {
+    background-color: rgba(255, 0, 0, 0.249);
+}
+
+/* mainly comments styling */
+.op {
+    color: var(--branding);
+}
+
+.comment {
+    background-color: rgb(24, 24, 24);
+    border-left: 0.2em solid var(--accent);
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+}
+
+.hidebtn {
+    background-color: transparent;
+    border: none;
+}
+
+.reply {
+    font-size: 1em;
+    fill: white;
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+}
+
+.commentContainer {
+    padding: 1em;
+}
+
+.top {
+    padding: .5em;
+}
+
+.bottom {
+    padding: .5em;
+}
+
+.ccontent {
+    padding: .5em;
+}
+
+.level-0 {
+    --accent: #3C91E6;
+}
+
+.level-1 {
+    --accent: #9FD356;
+}
+
+.level-2 {
+    --accent: #E16F7C;
+}
+
+.level-3 {
+    --accent: #B80C09;
+}
+
+.level-4 {
+    --accent: #4A7C59;
+}
+
+.replies {
+    margin-left: 0.5em;
+    padding-left: 0.3em;
 }

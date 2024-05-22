@@ -33,10 +33,15 @@ $title  = $_POST["title"];
 $text   = $_POST["text"];
 $imgid = null;
 
-if(isset($_FILES["image"]) && $_FILES["image"]["name"] != "") {
+if(isset($_FILES["image"]) && !$_FILES["image"]["error"] && !empty($_FILES["image"]["tmp_name"])) {
     $img        = $_FILES["image"];
     $img_path   = $img["tmp_name"];
     $ext = pathinfo($img["name"])["extension"];
+
+    if(!in_array($ext, array("gif", "png", "jpg"))) {
+        echo generateApiError(400, "Image", "The file attached was not of accepted type: " . $img_path);
+        die();
+    }
 
     $imgsize = getimagesize($img_path);
 

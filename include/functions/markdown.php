@@ -17,7 +17,7 @@ function generateHtml($text) {
         [ "/\> (.+)/", '<blockquote>${1}</blockquote>' ],
 
         // match fet-text
-        [ "/\*\*(.+)\*\*/", '<b>${1}</b>' ],
+        [ "/\*\*([^\*]+)\*\*/", '<b>${1}</b>' ],
 
         // matcha italics
         [ "/\*(.+)\*/", '<i>${1}</i>' ],
@@ -25,10 +25,11 @@ function generateHtml($text) {
         // Matcha länkar
         [ "/\[(.+)\]\((.+)\)/", '<a href="${2}">${1}</a>' ],
 
-        [ "/\- (.+)/", '<ul> <li>${1}</li> </ul>' ],
+        [ "/^\- (.+)/", '<ul> <li>${1}</li> </ul>' ],
 
         // Matcha nya rader
-        [ "/^((\r?\n)|(\r\n?))/", '</br>' ],
+        [ "/((\r?\n)|(\r\n?))/", '</br>' ],
+ 
     ];
 
     

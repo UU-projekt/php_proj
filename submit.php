@@ -1,6 +1,11 @@
 <?php
 	include "./include/bootstrap.php";
 
+    if(!isset($_SESSION["user"])) {
+        header("location: /auth/login.php?url=/submit.php");
+        die();
+    }
+
     $title  = "";
     $text   = "";
     $edit   = false;
