@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>test</title>
+		<title>Användarsida - Redidit</title>
 		<link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/register/index.css">
         <script src="js/user.js" defer type="module"></script>

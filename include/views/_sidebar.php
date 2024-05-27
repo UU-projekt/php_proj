@@ -55,8 +55,8 @@ if(isset($_SESSION["user"])) {
                 </ul>
             </div>
 
-            <hr>
         <?php endif; ?>
+            <hr>
 
             <div class="section stack gap-large">
                 <h3 class="fredoka-500 label">Information</h3>

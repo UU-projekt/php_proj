@@ -12,10 +12,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>test</title>
+		<title>Sök - Redidit</title>
 		<link rel="stylesheet" href="css/index.css">
 	</head>
-	<body class="roboto-regular stack center">
+	<body class="roboto-regular stack containerthing">
 		<?php include "./include/views/_navbar.php" ?>
 		<div class="layout">
             <?php include "./include/views/_sidebar.php" ?>

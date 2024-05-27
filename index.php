@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>test</title>
+		<title>som reddit fast bättre - Redidit</title>
 		<link rel="stylesheet" href="./css/index.css">
 	</head>
 	<body class="roboto-regular stack containerthing">

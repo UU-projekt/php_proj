@@ -384,4 +384,4 @@ function deleteComment($id, $reason) {
     return "deleted";
 }
 
-// ensureTables();
+//ensureTables();

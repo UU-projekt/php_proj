@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="/css/index.css">
         <link rel="stylesheet" href="/css/thread.css">
 	</head>
-	<body class="roboto-regular stack center">
+	<body class="roboto-regular stack containerthing">
 		<?php include "../include/views/_navbar.php" ?>
 		
         <div class="layout">
