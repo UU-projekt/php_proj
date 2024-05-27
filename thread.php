@@ -2,14 +2,14 @@
 	include "./include/bootstrap.php";
 
     if(!isset($_GET["id"])) {
-        header("location: /index.php");
+        header("location: ../index.php");
         die();
     }
 
     $t = getThread($_GET["id"]);
 
     if(empty($t)) {
-        header("location: /index.php");
+        header("location: ../index.php");
         die();
     }
 
@@ -24,11 +24,11 @@
 <html>
 	<head>
 		<title><?= strip_tags($t["title"]) ?> - Redidit</title>
-		<link rel="stylesheet" href="./css/index.css">
-        <link rel="stylesheet" href="./css/thread.css">
-        <script src="/js/comments.js" type="module" defer></script>
+		<link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/thread.css">
+        <script src="js/comments.js" type="module" defer></script>
 	</head>
-	<body class="roboto-regular stack center">
+	<body class="roboto-regular stack containerthing">
 		<?php include "./include/views/_navbar.php" ?>
 		
         <script>

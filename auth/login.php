@@ -1,6 +1,8 @@
 <?php
-    $url = $_GET["url"];
-    if(!isset($url)) $url = "/index.php";
+include "../include/bootstrap.php";
+
+    $url = "../index.php";
+    if(isset($_GET["url"])) $url = $_GET["url"];
     else $url = strip_tags($url);
 ?>
 
@@ -11,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <?php require "../include/views/_head.php" ?>
-    <link rel="stylesheet" href="/css/register/index.css">
+    <link rel="stylesheet" href="../css/register/index.css">
 </head>
 <body class="roboto-regular center">    
     <div id="logo"></div>
@@ -23,7 +25,7 @@
         <form class="stack gap-small" method="POST" action="login_user.php">
             <div class="input_group">
                 <label for="email">Email</label>
-                <input value="<?= strip_tags($_GET["email"]); ?>" placeholder="Jakob.Ulfsson@student.uu.se" type="email" name="email" required/>
+                <input value="<?= isset($_GET["email"]) ? strip_tags($_GET["email"]) : ""; ?>" placeholder="Jakob.Ulfsson@student.uu.se" type="email" name="email" required/>
             </div>
 
             <div class="input_group">

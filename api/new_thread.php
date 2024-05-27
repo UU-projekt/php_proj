@@ -65,4 +65,4 @@ if(isset($id)) {
     $res = createThread($title, $text, $imgid);
 }
 
-header("Location:" . "/thread.php?id=" . $res);
+header("Location:" . "../thread.php?id=" . $res);

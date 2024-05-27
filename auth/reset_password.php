@@ -1,3 +1,4 @@
+<?php include "../include/bootstrap.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
         <form class="stack gap-small" method="POST" action="request_psw_reset.php">
             <div class="input_group">
                 <label for="email">Email</label>
-                <input value="<?= strip_tags($_GET["email"]); ?>" placeholder="Jakob.Ulfsson@student.uu.se" type="email" name="email" required/>
+                <input value="<?= isset($_GET["email"]) ? strip_tags($_GET["email"]) : ""; ?>" placeholder="Jakob.Ulfsson@student.uu.se" type="email" name="email" required/>
             </div>
 
             <input class="btn branding" type="submit" value="Återställ lösenord" />

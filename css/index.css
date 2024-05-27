@@ -8,13 +8,13 @@
 
 /* Sidans tema */
 :root {
-    --bg:    #050505;
+    --bg:    #040404;
     --on_bg: white;
 
     --branding: #2EB454;
     --on_branding: white;
 
-    --tetriary: rgba(128, 128, 128, 0.151);
+    --tetriary: #1f252e76;
     --on_tetriary: white;
 
     --link_new: cyan;
@@ -29,6 +29,10 @@
     --accent: cyan;
 
     font-size:0.8vw;
+}
+
+body {
+    min-height: 100vh;
 }
 
 /* Ta bort jobbiga css presets */
@@ -82,7 +86,7 @@ body {
 
 .navbar {
     border-radius: .5em;
-    background-color: rgba(82, 82, 82, 0.212);
+    background-color: var(--tetriary);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -97,6 +101,11 @@ body {
 
 .navbar_content {
     height: 100%;
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 2em;
 }
 
 .nav_item {
@@ -152,9 +161,13 @@ body {
     background-color: rgba(21, 207, 21, 0.15);
 }
 
+.containerthing {
+    align-items: center;
+}
+
 .layout {
     width: 90%;
-    height: 100vh;
+    min-height: 100%;
     justify-content: center;
     display: flex;
     gap: 2em;
@@ -169,6 +182,12 @@ body {
     flex-direction: column;
     gap: .5em;
     width: 20%;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    padding-top: 1em;
 }
 
 .sidebar > .section {
@@ -230,4 +249,103 @@ button.star {
 
 .hide {
     display: none;
+}
+
+.search {
+    min-width: 50%;
+}
+
+.search_container > input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: medium;
+}
+
+.search_container {
+    background-color: var(--tetriary);
+    color: white;
+    padding: .7em;
+    border-radius: .7em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    fill: rgba(255, 255, 255, 0.29);
+}
+
+/* 
+function renderResult($data) {
+    echo "<div class='thread_preview'>";
+        echo "<div class='stars'>";
+            echo "<span>" . $data["stars"] . "</span>";
+            echo '<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z" fill-rule="nonzero"/></svg>';
+        echo "</div>";
+        echo "<h4>" . strip_tags($data["title"]) . "</h4>";
+    echo "</div>";
+}
+
+*/
+
+.thread_link {
+    text-decoration: none;
+    color: inherit !important;
+}
+
+.thread_preview {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: .7em;
+    border-radius: .7em;
+    gap: 1em;
+    background-color: var(--tetriary);
+    backdrop-filter: blur(10px);
+
+    .stars {
+        display: flex;
+        align-items: center;
+        gap: 0.2em;
+        opacity: .85;
+
+        svg {
+            width: 1em;
+            fill: gold;
+        }
+    }
+
+    .meta {
+        display: flex;
+        gap: 1em;
+    }
+}
+
+.thread_list {
+    position: relative;
+
+    .fire {
+        z-index: -1;
+        top: 25%;
+        left: 0;
+        position: absolute;
+        fill: #ba0b04;
+        transform: scale(10) rotateZ(-30deg);
+        filter: drop-shadow(0px 1px 10px #ea5104);
+        opacity: 0.15;
+    }
+
+    .starxd {
+        z-index: -1;
+        top: 25%;
+        left: 0;
+        position: absolute;
+        fill: gold;
+        transform: scale(10) rotateZ(-30deg);
+        filter: drop-shadow(0px 1px 10px gold);
+        opacity: 0.15;
+    }
+}
+
+.btnrow {
+    display: flex;
+    gap: 1em;
 }

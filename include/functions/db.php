@@ -60,11 +60,13 @@ function ensureTables() {
     }
 }
 
-function insertUser($username, $password, $email) {
+function insertUser($username, $password, $email, $uuid = null) {
     $uid = uniqid("user");
+    if(isset($uuid)) $uid = $uuid;
+
     $hashedPass = password_hash($password, PASSWORD_DEFAULT);
     $db = connect();
-    $stmt = $db->prepare("INSERT INTO users VALUES(:uid, :email, :username, :password, null)");
+    $stmt = $db->prepare("INSERT OR REPLACE INTO users VALUES(:uid, :email, :username, :password, null)");
     $stmt->bindParam(":uid", $uid);
     $stmt->bindParam(":email", $email);
     $stmt->bindParam(":username", $username);
@@ -221,6 +223,77 @@ function getThread($id) {
 function getNewThreads() {
     $db = connect();
     $stmt = $db->prepare("SELECT * FROM threads ORDER BY created DESC LIMIT 5");
+
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function searchThread($query) {
+    $sql = "
+    SELECT t.id, t.title, t.content, t.html, t.created, t.author, upl.id as imageid, upl.width, upl.height, u.username, u.id as userid, (SELECT COUNT(*) FROM starredThreads WHERE threadID = t.id) AS stars, (SELECT SUM(children) FROM comments WHERE parent = t.id) AS children
+    FROM threads AS t
+    LEFT JOIN uploaded AS upl
+    ON t.image = upl.id
+    LEFT JOIN users AS u
+    ON u.id = t.author
+    WHERE t.content LIKE '%' || :query || '%' OR t.title LIKE '%' || :query || '%';
+    ";
+    $db = connect();
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":query", $query);
+
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getHighStarThreads() {
+    $sql = "
+    SELECT t.id, t.title, t.content, t.html, t.created, t.author, upl.id as imageid, upl.width, upl.height, u.username, u.id as userid, (SELECT COUNT(*) FROM starredThreads WHERE threadID = t.id) AS stars, (SELECT SUM(children) FROM comments WHERE parent = t.id) AS children
+    FROM threads AS t
+    LEFT JOIN uploaded AS upl
+    ON t.image = upl.id
+    LEFT JOIN users AS u
+    ON u.id = t.author
+    ORDER BY stars DESC LIMIT 10;
+    ";
+    $db = connect();
+    $stmt = $db->prepare($sql);
+
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getHighCommentThreads() {
+    $sql = "
+    SELECT t.id, t.title, t.content, t.html, t.created, t.author, upl.id as imageid, upl.width, upl.height, u.username, u.id as userid, (SELECT COUNT(*) FROM starredThreads WHERE threadID = t.id) AS stars, (SELECT SUM(children) FROM comments WHERE parent = t.id) AS children
+    FROM threads AS t
+    LEFT JOIN uploaded AS upl
+    ON t.image = upl.id
+    LEFT JOIN users AS u
+    ON u.id = t.author
+    ORDER BY children DESC LIMIT 10;
+    ";
+    $db = connect();
+    $stmt = $db->prepare($sql);
+
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getUserThreads($uid) {
+    $sql = "
+    SELECT t.id, t.title, t.content, t.html, t.created, t.author, upl.id as imageid, upl.width, upl.height, u.username, u.id as userid, (SELECT COUNT(*) FROM starredThreads WHERE threadID = t.id) AS stars, (SELECT SUM(children) FROM comments WHERE parent = t.id) AS children
+    FROM threads AS t
+    LEFT JOIN uploaded AS upl
+    ON t.image = upl.id
+    LEFT JOIN users AS u
+    ON u.id = t.author
+    WHERE u.id = :userid
+    ORDER BY t.created;
+    ";
+    $db = connect();
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":userid", $uid);
 
     $stmt->execute();
     return $stmt->fetchAll();

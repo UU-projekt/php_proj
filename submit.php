@@ -2,7 +2,7 @@
 	include "./include/bootstrap.php";
 
     if(!isset($_SESSION["user"])) {
-        header("location: /auth/login.php?url=/submit.php");
+        header("location: ../auth/login.php?url=/submit.php");
         die();
     }
 
@@ -30,7 +30,7 @@
 		<title>test</title>
 		<link rel="stylesheet" href="./css/index.css">
 	</head>
-	<body class="roboto-regular stack center">
+	<body class="roboto-regular stack containerthing">
 		<?php include "./include/views/_navbar.php" ?>
 		
         <div class="layout">
@@ -39,7 +39,7 @@
             <div class="content">
                 <h1 class="fredoka-700 fsize-2em">Skapa tråd</h1>
                 <?php include "./include/views/_info_bar.php" ?>
-                <form method="POST" class="stack gap-large" action="/api/new_thread.php" enctype="multipart/form-data">
+                <form method="POST" class="stack gap-large" action="api/new_thread.php" enctype="multipart/form-data">
 
                     <div class="input_group">
                         <label for="title">Titel</label>

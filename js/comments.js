@@ -90,16 +90,16 @@ async function createComment(data, depth = 2, trueDepth = 0) {
     
 
 
-    const fuckinAnswerDivWhatever = document.createElement("div")
-    fuckinAnswerDivWhatever.classList = `replies stack gap-large level-${trueDepth % 5}`
-    fuckinAnswerDivWhatever.id = data.id
+    const commentContainer = document.createElement("div")
+    commentContainer.classList = `replies stack gap-large level-${trueDepth % 5}`
+    commentContainer.id = data.id
 
     async function getChildren() {
         trueDepth += 1;
         const c = await getComments(data.id)
 
         for(const cm of c) {
-            fuckinAnswerDivWhatever.append(await createComment(cm, depth - 1, trueDepth))
+            commentContainer.append(await createComment(cm, depth - 1, trueDepth))
         }
     } 
 
@@ -151,7 +151,7 @@ async function createComment(data, depth = 2, trueDepth = 0) {
         deleteComment(data.id)
     }
     
-    rest.append(content, bottomrow, ccs, fuckinAnswerDivWhatever)
+    rest.append(content, bottomrow, ccs, commentContainer)
 
     div.append(toprow, rest)
 
@@ -202,6 +202,8 @@ function createCommentForm() {
 
     sbmb.type = "submit"
     sbmb.classList = "btn branding"
+    sbmb.value = "Besvara"
+    
     sr.classList = "starrow"
     ta.minLength = 5
     ta.maxLength = 250

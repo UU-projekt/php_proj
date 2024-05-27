@@ -4,7 +4,7 @@
     if(!isset($_GET["reload"])) {
         if(!isset($_GET["t"])) {
             setError(401, "Ogiltig länk", "länken saknar återställnings-id. En giltig ser ut som <code>länk.com<b>?t=pswblahblah</b></code>");
-            header("Location: /auth/set_password.php?reload=true");
+            header("Location: ../auth/set_password.php?reload=true");
             die();
         }
     
@@ -20,7 +20,7 @@
             }
         } catch (Exception $e) {
             setError(404, "Här var det tomt", "detta är inte en giltig länk för att återställa ditt lösenord");
-            header("Location: /auth/set_password.php?reload=true");
+            header("Location: ../auth/set_password.php?reload=true");
             die();
         }
     }
@@ -33,7 +33,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <?php require "../include/views/_head.php" ?>
-    <link rel="stylesheet" href="/css/register/index.css">
+    <link rel="stylesheet" href="../css/register/index.css">
 </head>
 <body class="roboto-regular center">    
     <div id="logo"></div>

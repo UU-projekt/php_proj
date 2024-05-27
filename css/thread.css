@@ -67,7 +67,7 @@
 }
 
 .comment {
-    background-color: rgb(24, 24, 24);
+    background-color: #0E0F10;
     border-left: 0.2em solid var(--accent);
 }
 
