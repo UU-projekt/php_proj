@@ -3,7 +3,7 @@
 function connect() {
     if(isset($pdo)) return $pdo;
 
-    $dbFile = "/var/www/html/db/the_base_of_data.db"; # REMOVE THIS HARDCODED VALUE YOU ABSOLUTE FAILURE OF A MAN!!!!!!!!!!!!!!!!!!!!!
+    $dbFile = getProperPath("the_base_of_data.db", "/db/"); # REMOVE THIS HARDCODED VALUE YOU ABSOLUTE FAILURE OF A MAN!!!!!!!!!!!!!!!!!!!!!
     $pdo = new PDO("sqlite:$dbFile");
     $pdo->exec("PRAGMA recursive_triggers = on;");
 

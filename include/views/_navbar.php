@@ -11,13 +11,13 @@
             </form>
             
         <?php if(isset($_SESSION["user"])): ?>
-            <a href="/user.php">
+            <a href="user.php">
                 <div class="nav_item">
                     Ditt konto
                 </div>  
             </a>
         <?php else: ?>
-            <a href="/auth/login.php">
+            <a href="auth/login.php">
                 <div class="nav_item">
                     Logga in
                 </div>  

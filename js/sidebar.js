@@ -1,4 +1,4 @@
-import toast, { TOAST_TYPES_ENUM } from "/js/toast.js"
+import toast, { TOAST_TYPES_ENUM } from "./toast.js"
 
 /*
 <li data-starred-id="<?= $t["id"] ?>">
@@ -40,7 +40,7 @@ function addStar(threadid, elem) {
     const xd = new FormData()
     xd.append("threadid", threadid)
 
-    fetch("/api/star.php", {
+    fetch("api/star.php", {
         method: "POST",
         body: xd
     })
@@ -71,7 +71,7 @@ function removeStar(threadid, elem) {
     xd.append("threadid", threadid)
     xd.append("method", "delete")
 
-    fetch("/api/star.php", {
+    fetch("api/star.php", {
         method: "POST",
         body: xd
     })

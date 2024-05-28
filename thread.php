@@ -79,7 +79,7 @@
                         
                         <?php if(isset($t["imageid"])): ?>
                         <div class="image-container stack gap-huge">
-                            <img src="/cdn/image.php?key=<?= $t["imageid"] ?>" />
+                            <img src="cdn/image.php?key=<?= $t["imageid"] ?>" />
                         </div>
                         <?php endif; ?>
                     </article>
@@ -87,7 +87,7 @@
 
                 
                 <?php if(!isset($_SESSION["user"])): ?> 
-                    <p>Du är inte inloggad. <a href="/auth/login.php?url=/thread.php?id=<?= $t["id"] ?>">Logga in</a> för att besvara tråden!</p>
+                    <p>Du är inte inloggad. <a href="auth/login.php?url=/thread.php?id=<?= $t["id"] ?>">Logga in</a> för att besvara tråden!</p>
                 <?php else: ?>
                     <div id="main_comment" class="commentInput" class="commentbox"></div>
                 <?php endif; ?>

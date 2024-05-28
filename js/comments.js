@@ -1,4 +1,4 @@
-import toast, { TOAST_TYPES_ENUM } from "/js/toast.js"
+import toast, { TOAST_TYPES_ENUM } from "./toast.js"
 /*
     <form onsubmit="postComment(this)">
         <div class="input_group">
@@ -176,7 +176,7 @@ async function bindCommentElem(data, parent, prepend = false, scrollto = false) 
 
 function getComments(parent) {
     return new Promise((resolve, reject) => {
-        fetch(`/api/comments.php?parent=${parent}`)
+        fetch(`api/comments.php?parent=${parent}`)
         .then(r => {
             r.json()
                 .then(data => {
@@ -236,7 +236,7 @@ function onSubmit(ev, id) {
 
 
 
-    fetch("/api/new_comment.php", {
+    fetch("api/new_comment.php", {
         method: "POST",
         body: fd
     })
@@ -281,7 +281,7 @@ function bindComment(parent, id, deleteAfterUse = false) {
 
 
 function promptUserLogin() {
-    window.location.replace(`/auth/login.php?url=${encodeURI(window.location.href)}`)
+    window.location.replace(`auth/login.php?url=${encodeURI(window.location.href)}`)
 }
 
 function populate() {
@@ -302,7 +302,7 @@ function deleteComment(comment) {
     if(confirm("Är du helt säker?")) {
         const fd = new FormData()
         fd.append("comment", comment)
-        fetch(`/api/delete.php`, { method: "POST", body: fd })
+        fetch(`api/delete.php`, { method: "POST", body: fd })
             .then(data => {
                 data.json()
                     .then(res => {
@@ -320,7 +320,7 @@ function deleteThread() {
     if(confirm("Är du helt säker?")) {
         const fd = new FormData()
         fd.append("thread", threadDetails.id)
-        fetch(`/api/delete.php`, { method: "POST", body: fd })
+        fetch(`api/delete.php`, { method: "POST", body: fd })
             .then(data => {
                 data.json()
                     .then(res => {

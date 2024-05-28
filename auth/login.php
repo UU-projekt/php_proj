@@ -12,7 +12,7 @@ include "../include/bootstrap.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <?php require "../include/views/_head.php" ?>
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/register/index.css">
 </head>
 <body class="roboto-regular center">    
@@ -36,8 +36,8 @@ include "../include/bootstrap.php";
             <input type="hidden" name="url" value="<?= $url ?>" />
             <input class="btn branding" type="submit" value="Logga in" />
         </form> 
-        <a href="/auth/register.php" class="btn tetriary">Skapa ett konto</a>
-        <small>Glömt ditt lösenord? <a href="/auth/reset_password.php">Återställ lösenord</a>.</small>
+        <a href="register.php" class="btn tetriary">Skapa ett konto</a>
+        <small>Glömt ditt lösenord? <a href="reset_password.php">Återställ lösenord</a>.</small>
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 function renderResult($data) {
-    echo "<a class='thread_link' href='" . "../thread.php?id=" . $data["id"] . "'>";
+    echo "<a class='thread_link' href='" . "thread.php?id=" . $data["id"] . "'>";
         echo "<div class='thread_preview'>";
             echo "<div class='stars'>";
                 echo "<span>" . $data["stars"] . "</span>";

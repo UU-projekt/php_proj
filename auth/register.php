@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <?php require "../include/views/_head.php" ?>
+    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/register/index.css">
 </head>
 <body class="roboto-regular center">    
@@ -33,7 +33,7 @@
 
             <input class="btn branding" type="submit" value="skapa konto" />
         </form> 
-        <small>Genom att skapa ett konto godkänner du våra <a href="/legal/terms.php">villkor</a>.</small>
+        <small>Genom att skapa ett konto godkänner du våra <a href="../legal/terms.php">villkor</a>.</small>
     </div>
 </body>
 </html>
