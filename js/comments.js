@@ -270,6 +270,8 @@ function bindComment(parent, id, deleteAfterUse = false) {
     const form = createCommentForm()
     form.onsubmit = (e) => {
         onSubmit(e, id)
+        
+        e.target.querySelector("textarea").value = ""
         if(deleteAfterUse) form.remove()
     }
 
